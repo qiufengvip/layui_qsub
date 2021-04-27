@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>layui_qsub后台管理系统模板</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="/static/layui/css/layui.css">
+    <link rel="stylesheet" href="/static/css/layuiqsub.css">
+</head>
+
+
+<body>
+    <!--后台页面的最外层的div容器-->
+    <div class="layui-layout layui-layout-admin">
+        <div class="layui-header  layui-bg-green">
+            <div class="layui-logo"><span class="qsub_font_color">layui 后台管理系统模板</span> </div>
+            <!--水平导航标签(右边)-->
+            <ul class="layui-nav layui-layout-right">
+                <li class="layui-nav-item">
+                    <a href="">控制台<span class="layui-badge">9</span></a>
+                </li>
+                <li class="layui-nav-item">
+                    <a href="#"><img src="//t.cn/RCzsdCq" class="layui-nav-img">管理员</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">系统设置</a></dd>
+                        <dd><a href="javascript:;">修改密码</a></dd>
+                        <dd><a href="javascript:;">退出</a></dd>
+                    </dl>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="layui-side layui-bg-black">
+            <div class="layui-side-scroll ">
+                <!-- 垂直导航菜单 -->
+                <ul class="layui-nav layui-nav-tree layui-bg-black" lay-filter="test">
+                    <!-- 侧边导航 -->
+                    <!--                                                                 tab导航标题      tab导航 url地址         tab导航id                      只有带有这个class 的标签才可以被扫描到      -->
+                    <li class="layui-nav-item"><a href="javascript:;" data-open="true" data-title="首页" data-url="home.html" data-id="1" data-type="tabAdd" class="site-demo-active">首页</a></li>
+                    <li class="layui-nav-item layui-nav-itemed">
+                        <a href="javascript:;">应用</a>
+                        <dl class="layui-nav-child">
+                            <dd>
+                                <a href="javascript:;" data-title="应用信息管理" data-url="appinfo.html" data-id="2" data-type="tabAdd" class="site-demo-active">应用信息管理</a>
+                            </dd>
+                            <dd><a href="javascript:;">应用公告</a></dd>
+                            <dd><a href="javascript:;">版本发布</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">用户</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">用户管理</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">服务器</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="javascript:;">重启服务器</a></dd>
+                            <dd><a href="javascript:;">关闭服务器</a></dd>
+                        </dl>
+                    </li>
+                    <li class="layui-nav-item"><a href="javascript:;">系统日志</a></li>
+
+                </ul>
+
+            </div>
+        </div>
+
+
+        <!-- 右边的主体内容是用标签选项卡的格式进行显示的，且本例子中是用iframe内嵌页实现内容的填充的 -->
+        <div class="layui-body ">
+            <!--  右边主题内容，且是以标签选项卡的方式显示  -->
+
+            <div lay-filter="demo" class="layui-tab layui-tab-card" lay-allowClose="true">
+                <ul class="layui-tab-title">
+
+                </ul>
+                <div class="layui-tab-content">
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- 底部固定区域 -->
+        <div class="layui-footer layui-fluid layui-bg-cyan ">
+            <div class="layui-row" style="text-align: center;">
+                <legend>后-台-管-理-系-统-模-板 ©qsub</legend>
+            </div>
+        </div>
+</body>
+
+<script src="/static/layui/layui.js"></script>
+<script type="text/javascript">
+    //注意：导航 依赖 element 模块，否则无法进行功能性操作
+    layui.use('element', function() {
+        var element = layui.element; //layui框架中element模块的初始化
+        var $ = layui.jquery;
+
+
+
+        //触发事件
+        var active = {
+            //在这里给active绑定几项事件，后面可通过active调用这些事件
+            tabAdd: function(url, id, name) {
+                // alert("url：" + url);
+                // alert("id：" + id);
+                // alert("name：" + name);
+                //新增一个Tab项 传入三个参数，分别对应其标题，tab页面的地址，还有一个规定的id，是标签中data-id的属性值
+                //关于tabAdd的方法所传入的参数可看layui的开发文档中基础方法部分
+                element.tabAdd('demo', {
+                    title: name,
+                    content: '<iframe src="' + url + '"/>',
+                    id: id
+                })
+
+                element.render('tab'); //渲染更新tab
+
+            },
+            tabChange: function(id) {
+                element.tabChange('demo', id);
+            }, //根据传入的id切换到指定Tab项
+
+            tabDelete: function(id) {
+                element.tabDelete("demo", id);
+            }, //删除
+
+            tabDeleteAll: function(ids) //删除所有
+                {
+                    $.each(ids, function(i, item) {
+                        element.tabDelete("demo", item); //ids是一个数组，里面存放了多个id，调用tabDelete方法分别删除
+                    })
+                }
+
+        };
+
+
+        console.log("开始运行");
+        //打开默认打开的页面
+        var sitedemo = $('.site-demo-active');
+
+
+        console.log(sitedemo.length);
+        for (var i = 0; i < sitedemo.length; i++) {
+            var dataid = $(sitedemo[i]);
+            console.log(sitedemo.length);
+            console.log(dataid.attr("data-open"))
+            if (dataid.attr("data-open") == "true") {
+                active.tabAdd(dataid.attr("data-url"), dataid.attr("data-id"), dataid.attr("data-title"));
+                active.tabChange(dataid.attr("data-id"));
+            }
+        }
+
+
+
+        //当点击有site-demo-active属性的标签时，即左侧菜单栏中内容 ，触发点击事件
+        $('.site-demo-active').on('click', function() {
+            var dataid = $(this);
+
+            //这时会判断右侧.layui-tab-title属性下的有lay-id属性的li的数目，即已经打开的tab项数目
+            if ($(".layui-tab-title li[lay-id]").length <= 0) //如果比零小，则直接打开新的tab项
+            {
+                active.tabAdd(dataid.attr("data-url"), dataid.attr("data-id"), dataid.attr("data-title"));
+            } else {
+                //否则判断该tab项是否以及存在
+                var isData = false; //初始化一个标志，为false说明未打开该tab项 为true则说明已有
+                $.each($(".layui-tab-title li[lay-id]"), function() {
+                    //如果点击左侧菜单栏所传入的id 在右侧tab项中的lay-id属性可以找到，则说明该tab项已经打开
+                    if ($(this).attr("lay-id") == dataid.attr("data-id")) {
+                        isData = true;
+                    }
+
+                })
+                if (isData == false) {
+                    //标志为false 新增一个tab项
+                    active.tabAdd(dataid.attr("data-url"), dataid.attr("data-id"), dataid.attr("data-title"));
+                }
+            }
+            //最后不管是否新增tab，最后都转到要打开的选项页面上
+            active.tabChange(dataid.attr("data-id"));
+
+
+        });
+
+
+
+
+
+
+
+
+
+    });
+</script>
+
+</html>
