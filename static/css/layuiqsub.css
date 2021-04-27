@@ -150,4 +150,30 @@ iframe {
 .qsub-form-title-text {
     font-size: 20px;
     font-weight: bold;
+    text-align: center;
+}
+
+.qsub-appnotice-subit {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.qsub-form-entry-assist {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.qsub-version-title {
+    display: flex;
+    justify-content: center;
+}
+
+.qsub-form-version-title {
+    font-weight: bold;
+    font-size: 19px;
+    margin-right: 20px;
+    color: #009688;
 }

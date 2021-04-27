@@ -1,0 +1,53 @@
+[{
+    "id": 1,
+    "title": "首页",
+    "url": "systemsettings.html",
+    "type": "qsub-menu"
+}, {
+    "id": 2,
+    "title": "应用管理",
+    "submenu": [{
+        "id": 3,
+        "title": "应用信息管理",
+        "url": "appinfo.html",
+        "type": "qsub-menu"
+    }, {
+        "id": 4,
+        "title": "应用公告",
+        "url": "appnotice.html",
+        "type": "qsub-menu"
+    }, {
+        "id": 5,
+        "title": "版本发布",
+        "url": "appversion.html",
+        "type": "qsub-menu"
+    }]
+}, {
+    "id": 6,
+    "title": "用户",
+    "submenu": [{
+        "id": 7,
+        "title": "用户管理",
+        "url": "user.html",
+        "type": "qsub-menu"
+    }]
+}, {
+    "id": 8,
+    "title": "服务器",
+    "submenu": [{
+        "id": 9,
+        "title": "重启服务器",
+        "url": "user.html",
+        "type": "qsub-menu"
+    }, {
+        "id": 10,
+        "title": "关闭服务器",
+        "url": "user.html",
+        "type": "qsub-menu"
+    }]
+}, {
+    "id": 11,
+    "title": "系统日志",
+    "url": "systemlog.html",
+    "type": "qsub-menu"
+}]

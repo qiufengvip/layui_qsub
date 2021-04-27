@@ -26,8 +26,9 @@
                 <li class="layui-nav-item">
                     <a href="#"><img src="//t.cn/RCzsdCq" class="layui-nav-img">管理员</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="javascript:;">系统设置</a></dd>
-                        <dd><a href="javascript:;">修改密码</a></dd>
+                        <!-- systemsettings.html -->
+                        <dd><a href="javascript:;" data-title="系统设置" data-url="systemsettings.html" data-id="7" class="qsub-menu">系统设置</a></dd>
+                        <dd><a href="javascript:;" data-title="修改密码" data-url="changepwd.html" data-id="8" data-type="tabAdd" class="qsub-menu">修改密码</a></dd>
                         <dd><a href="javascript:;">退出</a></dd>
                     </dl>
                 </li>
@@ -41,21 +42,19 @@
                 <ul class="layui-nav layui-nav-tree layui-bg-black" lay-filter="test">
                     <!-- 侧边导航 -->
                     <!--                                                                 tab导航标题      tab导航 url地址         tab导航id                      只有带有这个class 的标签才可以被扫描到      -->
-                    <li class="layui-nav-item"><a href="javascript:;" data-open="true" data-title="首页" data-url="home.html" data-id="1" data-type="tabAdd" class="site-demo-active">首页</a></li>
+                    <li class="layui-nav-item"><a href="javascript:;" data-open="true" data-title="首页" data-url="home.html" data-id="1" data-type="tabAdd" class="qsub-menu">首页</a></li>
                     <li class="layui-nav-item layui-nav-itemed">
                         <a href="javascript:;">应用</a>
                         <dl class="layui-nav-child">
-                            <dd>
-                                <a href="javascript:;" data-title="应用信息管理" data-url="appinfo.html" data-id="2" data-type="tabAdd" class="site-demo-active">应用信息管理</a>
-                            </dd>
-                            <dd><a href="javascript:;">应用公告</a></dd>
-                            <dd><a href="javascript:;">版本发布</a></dd>
+                            <dd><a href="javascript:;" data-title="应用信息管理" data-url="appinfo.html" data-id="2" data-type="tabAdd" class="qsub-menu">应用信息管理</a></dd>
+                            <dd><a href="javascript:;" data-title="应用公告" data-url="appnotice.html" data-id="3" data-type="tabAdd" class="qsub-menu">应用公告</a></dd>
+                            <dd><a href="javascript:;" data-title="版本发布" data-url="appversion.html" data-id="4" data-type="tabAdd" class="qsub-menu">版本发布</a></dd>
                         </dl>
                     </li>
                     <li class="layui-nav-item">
                         <a href="javascript:;">用户</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="javascript:;">用户管理</a></dd>
+                            <dd><a href="javascript:;" data-title="用户管理" data-url="user.html" data-id="5" data-type="tabAdd" class="qsub-menu">用户管理</a></dd>
                         </dl>
                     </li>
                     <li class="layui-nav-item">
@@ -65,7 +64,7 @@
                             <dd><a href="javascript:;">关闭服务器</a></dd>
                         </dl>
                     </li>
-                    <li class="layui-nav-item"><a href="javascript:;">系统日志</a></li>
+                    <li class="layui-nav-item"><a href="javascript:;" data-title="系统日志" data-url="systemlog.html" data-id="6" data-type="tabAdd" class="qsub-menu">系统日志</a></li>
 
                 </ul>
 
@@ -144,7 +143,7 @@
 
         console.log("开始运行");
         //打开默认打开的页面
-        var sitedemo = $('.site-demo-active');
+        var sitedemo = $('.qsub-menu');
 
 
         console.log(sitedemo.length);
@@ -160,8 +159,8 @@
 
 
 
-        //当点击有site-demo-active属性的标签时，即左侧菜单栏中内容 ，触发点击事件
-        $('.site-demo-active').on('click', function() {
+        //当点击有qsub-menu属性的标签时，即左侧菜单栏中内容 ，触发点击事件
+        $('.qsub-menu').on('click', function() {
             var dataid = $(this);
 
             //这时会判断右侧.layui-tab-title属性下的有lay-id属性的li的数目，即已经打开的tab项数目
