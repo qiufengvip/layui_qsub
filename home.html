@@ -13,43 +13,8 @@
 </head>
 
 <body class="bodys">
-    <div class="layui-row">
-        <div class="layui-col-xs3">
-            <div class="qsub-statistics-top layui-panel">
-                <i class="layui-icon qsub-statistics-ico layui-icon-group" style="color: #5FB878;"></i>
-                <div class="qsub-statistics-top-right">
-                    <div class="qsub-statistics-top-right-01">用户总数</div>
-                    <div class="qsub-statistics-top-right-02">8545</div>
-                </div>
-            </div>
-        </div>
-        <div class="layui-col-xs3">
-            <div class="qsub-statistics-top layui-panel">
-                <i class="layui-icon qsub-statistics-ico layui-icon-cart" style="color: #5FB878;"></i>
-                <div class="qsub-statistics-top-right">
-                    <div class="qsub-statistics-top-right-01">商品统计</div>
-                    <div class="qsub-statistics-top-right-02">8545</div>
-                </div>
-            </div>
-        </div>
-        <div class="layui-col-xs3">
-            <div class="qsub-statistics-top layui-panel">
-                <i class="layui-icon qsub-statistics-ico layui-icon-find-fill" style="color: #5FB878;"></i>
-                <div class="qsub-statistics-top-right">
-                    <div class="qsub-statistics-top-right-01">浏览统计</div>
-                    <div class="qsub-statistics-top-right-02">8545</div>
-                </div>
-            </div>
-        </div>
-        <div class="layui-col-xs3">
-            <div class="qsub-statistics-top layui-panel">
-                <i class="layui-icon qsub-statistics-ico layui-icon-rmb" style="color: #5FB878;"></i>
-                <div class="qsub-statistics-top-right">
-                    <div class="qsub-statistics-top-right-01">今日收益</div>
-                    <div class="qsub-statistics-top-right-02">125</div>
-                </div>
-            </div>
-        </div>
+    <div class="layui-row" id="view">
+
     </div>
 
     <div class="layui-row ">
@@ -62,54 +27,9 @@
         </div>
         <div class="layui-col-md4">
             <div class="layui-panel qsub-statistics-01">
-                <div class="qsub-statistics-title">今日情况统计</div>
-                <ul class="layui-timeline">
-                    <li class="layui-timeline-item">
-                        <i class="layui-icon layui-timeline-axis"></i>
-                        <div class="layui-timeline-content layui-text">
-                            <h3 class="layui-timeline-title">4月26日</h3>
-                            <p>
-                                layui 2.0 的一切准备工作似乎都已到位。发布之弦，一触即发。
-                                <br>不枉近百个日日夜夜与之为伴。因小而大，因弱而强。
-                                <br>无论它能走多远，抑或如何支撑？至少我曾倾注全心，无怨无悔 <i class="layui-icon"></i>
-                            </p>
-                        </div>
-                    </li>
-                    <li class="layui-timeline-item">
-                        <i class="layui-icon layui-timeline-axis"></i>
-                        <div class="layui-timeline-content layui-text">
-                            <h3 class="layui-timeline-title">4月25日</h3>
-                            <p>杜甫的思想核心是儒家的仁政思想，他有<em>“致君尧舜上，再使风俗淳”</em>的宏伟抱负。个人最爱的名篇有：</p>
-                            <ul>
-                                <li>《登高》</li>
-                                <li>《茅屋为秋风所破歌》</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="layui-timeline-item">
-                        <i class="layui-icon layui-timeline-axis"></i>
-                        <div class="layui-timeline-content layui-text">
-                            <h3 class="layui-timeline-title">4月25日</h3>
-                            <p>
-                                中国人民抗日战争胜利日
-                                <br>铭记、感恩
-                                <br>所有为中华民族浴血奋战的英雄将士
-                                <br>永垂不朽
-                            </p>
-                        </div>
-                    </li>
-                    <li class="layui-timeline-item">
-                        <i class="layui-icon layui-timeline-axis"></i>
-                        <div class="layui-timeline-content layui-text">
-                            <h3 class="layui-timeline-title">4月24日</h3>
-                            <p>
-                                中国人民抗日战争胜利日
-                                <br>铭记、感恩
-                                <br>所有为中华民族浴血奋战的英雄将士
-                                <br>永垂不朽
-                            </p>
-                        </div>
-                    </li>
+                <div class="qsub-statistics-title">近日情况统计</div>
+                <ul class="layui-timeline" id="view01">
+
                 </ul>
             </div>
         </div>
@@ -117,7 +37,43 @@
     <br><br><br>
 
 </body>
+
+<!-- 首页四数据 -->
+<script id="demo" type="text/html">
+
+    {{# layui.each(d, function(index, item){ }}
+    <div class="layui-col-xs3">
+        <div class="qsub-statistics-top layui-panel">
+            <i class="layui-icon qsub-statistics-ico {{ item.icon }}" style="color: #5FB878;"></i>
+            <div class="qsub-statistics-top-right">
+                <div class="qsub-statistics-top-right-01">{{ item.title }}</div>
+                <div class="qsub-statistics-top-right-02">{{ item.number }}</div>
+            </div>
+        </div>
+    </div>
+    {{# }); }}
+</script>
+
+<!-- 右边日报 -->
+<script id="demo01" type="text/html">
+    {{# layui.each(d, function(index, item){ }}
+    <li class="layui-timeline-item">
+        <i class="layui-icon layui-timeline-axis"></i>
+        <div class="layui-timeline-content layui-text">
+            <h3 class="layui-timeline-title">{{ item.title }}</h3>
+            {{ item.content }}
+        </div>
+    </li>
+    {{# }); }}
+</script>
+
+
+
+
+
+
 <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<script src="/static/layui/layui.js"></script>
 <script>
     var chartDom = document.getElementById('visualcomponent');
     var myChart = echarts.init(chartDom);
@@ -143,6 +99,48 @@
     };
 
     option && myChart.setOption(option);
+
+
+
+
+
+
+
+    layui.use(['laytpl', 'element', 'jquery'], function() {
+        var laytpl = layui.laytpl;
+        var element = layui.element;
+        var $ = layui.$;
+
+        //获取四条统计信息
+        var data = JSON.parse($.ajax({
+            url: "/static/api/home-01.json",
+            async: false
+        }).responseText);
+        console.log(data)
+            //获取近日日报
+        var data02 = JSON.parse($.ajax({
+            url: "/static/api/home-02.json",
+            dataType: "json",
+            async: false
+        }).responseText);
+
+        var getTpl = demo.innerHTML,
+            getTpl02 = demo01.innerHTML,
+            view = document.getElementById('view'),
+            view01 = document.getElementById('view01');
+        console.log(view)
+        console.log(getTpl)
+
+        laytpl(getTpl).render(data, function(html) {
+            view.innerHTML = html;
+            console.log(html);
+        });
+
+        laytpl(getTpl02).render(data02, function(html) {
+            view01.innerHTML = html;
+        });
+        element.render();
+    });
 </script>
 
 </html>

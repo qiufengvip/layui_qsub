@@ -1,0 +1,17 @@
+[{
+    "title": "用户总数",
+    "number": "8545",
+    "icon": "layui-icon-group"
+}, {
+    "title": "商品统计",
+    "number": "8545",
+    "icon": "layui-icon-cart"
+}, {
+    "title": "浏览统计",
+    "number": "2545",
+    "icon": "layui-icon-find-fill"
+}, {
+    "title": "今日收益",
+    "number": "1545",
+    "icon": "layui-icon-rmb"
+}]

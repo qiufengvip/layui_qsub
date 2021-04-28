@@ -43,6 +43,8 @@
                     <!-- 侧边导航 -->
                     <!--                                                                 tab导航标题      tab导航 url地址         tab导航id                      只有带有这个class 的标签才可以被扫描到      -->
                     <li class="layui-nav-item"><a href="javascript:;" data-open="true" data-title="首页" data-url="home.html" data-id="1" data-type="tabAdd" class="qsub-menu">首页</a></li>
+                    <li class="layui-nav-item"><a href="login.html">登录模板</a></li>
+                    <li class="layui-nav-item"><a href="javascript:;" data-title="页面未找到" data-url="404.html" data-id="9" data-type="tabAdd" class="qsub-menu">错误页面展示</a></li>
                     <li class="layui-nav-item layui-nav-itemed">
                         <a href="javascript:;">应用</a>
                         <dl class="layui-nav-child">
@@ -67,7 +69,6 @@
                     <li class="layui-nav-item"><a href="javascript:;" data-title="系统日志" data-url="systemlog.html" data-id="6" data-type="tabAdd" class="qsub-menu">系统日志</a></li>
 
                 </ul>
-
             </div>
         </div>
 
@@ -75,7 +76,6 @@
         <!-- 右边的主体内容是用标签选项卡的格式进行显示的，且本例子中是用iframe内嵌页实现内容的填充的 -->
         <div class="layui-body ">
             <!--  右边主题内容，且是以标签选项卡的方式显示  -->
-
             <div lay-filter="demo" class="layui-tab layui-tab-card" lay-allowClose="true">
                 <ul class="layui-tab-title">
 
@@ -102,8 +102,6 @@
     layui.use('element', function() {
         var element = layui.element; //layui框架中element模块的初始化
         var $ = layui.jquery;
-
-
 
         //触发事件
         var active = {
